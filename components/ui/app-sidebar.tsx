@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Home, MapIcon, PersonStandingIcon } from "lucide-react";
 
 import {
   Sidebar,
@@ -24,28 +24,18 @@ import Image from "next/image";
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: Home,
   },
   {
     title: "Agents",
     url: "/agents",
-    icon: Inbox,
+    icon: PersonStandingIcon,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    title: "Maps",
+    url: "/maps",
+    icon: MapIcon,
   },
 ];
 

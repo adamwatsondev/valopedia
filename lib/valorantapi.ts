@@ -16,3 +16,20 @@ export const getAgents = async () => {
     return null;
   }
 };
+
+export const getMaps = async () => {
+  try {
+    const response = await fetch("https://valorant-api.com/v1/maps");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch maps data");
+    }
+
+    const data = await response.json();
+    console.log("API response:", data); // Log the API response
+    return data;
+  } catch (error) {
+    console.error("Error fetching maps:", error);
+    return null;
+  }
+};
