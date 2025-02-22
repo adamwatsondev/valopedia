@@ -33,3 +33,20 @@ export const getMaps = async () => {
     return null;
   }
 };
+
+export const getWeapons = async () => {
+  try {
+    const response = await fetch("https://valorant-api.com/v1/weapons");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch weapons data");
+    }
+
+    const data = await response.json();
+    console.log("API response:", data); // Log the API response
+    return data;
+  } catch (error) {
+    console.error("Error fetching weapons:", error);
+    return null;
+  }
+};

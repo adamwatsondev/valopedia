@@ -37,6 +37,11 @@ const items = [
     url: "/maps",
     icon: MapIcon,
   },
+  {
+    title: "Weapons",
+    url: "/weapons",
+    icon: MapIcon,
+  },
 ];
 
 export function AppSidebar() {
