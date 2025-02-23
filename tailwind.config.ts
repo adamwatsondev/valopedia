@@ -32,6 +32,7 @@ export default {
       },
       fontFamily: {
         valorant: ["ValorantLogo", "sans-serif"],
+        tungsten: ["tungsten", "sans-serif"],
       },
     },
   },

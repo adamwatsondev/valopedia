@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-animate antialiased">
+      <body className="bg-[#ece7e1] antialiased">
         <SidebarProvider>
           <AppSidebar />
           <main className="w-full">

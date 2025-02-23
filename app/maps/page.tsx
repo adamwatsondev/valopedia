@@ -26,24 +26,30 @@ const Maps = () => {
   }, []); // Only run once on component mount
 
   return (
-    <div className="grid grid-cols-3 gap-20">
-      {maps.map((map: maps) => (
-        <Link
-          className="flex flex-col gap-4 items-center justify-center"
-          key={map.uuid}
-          href={`/maps/${map.uuid}`}
-        >
-          <Image
-            src={map.splash}
-            alt={map.displayName}
-            width={400}
-            height={400}
-          />
-          <span className="text-5xl text-white font-valorant">
-            {map.displayName}
-          </span>
-        </Link>
-      ))}
+    <div className="flex flex-col gap-12">
+      <span className="text-8xl text-center text-[#0f1923] font-tungsten items-center justify-center">
+        Maps
+      </span>
+      <div className="grid grid-cols-3 gap-10">
+        {maps.map((map: maps) => (
+          <Link
+            className="relative flex items-center justify-center"
+            key={map.uuid}
+            href={`/maps/${map.uuid}`}
+          >
+            <Image
+              src={map.splash}
+              alt={map.displayName}
+              width={600}
+              height={600}
+              className="w-full h-auto border border-valoranttext object-cover rounded-none"
+            />
+            <span className="absolute text-4xl md:text-7xl text-white font-valorant rounded-lg">
+              {map.displayName}
+            </span>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

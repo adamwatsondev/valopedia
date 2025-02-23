@@ -4,6 +4,14 @@ import { getMaps } from "@/lib/valorantapi";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { mapDescriptions } from "@/data/descriptions";
 
 interface Callout {
   regionName: string;
@@ -55,29 +63,42 @@ const MapPage = () => {
 
   const { minX, maxX, minY, maxY } = getMinMaxCoordinates();
 
+  // Find map description by displayName
+  const mapDescription = mapDescriptions.find(
+    (desc) => desc.displayName === map?.displayName
+  );
+
   return (
     <>
-      {map && (
+      {map && mapDescription && (
         <>
           <div className="flex flex-col gap-10 items-center">
             {/* Map Title */}
-            <div className="relative flex items-center justify-center">
+            <div className="relative rounded-xl flex items-center justify-center">
               {/* Background Image */}
               <Image
                 src={map.listViewIcon}
                 alt="Map Marker"
-                width={400}
-                height={300}
-                className="z-0 opacity-50 rounded-lg"
+                width={800}
+                height={600}
+                className="z-0 blur-sm rounded-lg"
               />
 
               {/* Text (Higher z-index) */}
-              <span className="absolute text-white font-valorant text-6xl z-10">
+              <span className="absolute text-white uppercase font-tungsten text-8xl z-10">
                 {map.displayName}
               </span>
             </div>
 
+            {/* Description */}
+            <span className="text-[#0f1923] text-center text-3xl font-tungsten">
+              {mapDescription.description}
+            </span>
+
             {/* Map Container (Relative for Absolute Positioning) */}
+            <span className="text-[#0f1923] text-6xl font-tungsten">
+              Map & Callouts
+            </span>
             <div className="relative w-[600px] h-[600px]">
               {/* Map Image */}
               <Image
@@ -111,7 +132,38 @@ const MapPage = () => {
               })}
             </div>
           </div>
-          <div className="flex flex-col gap-8"></div>
+
+          {/* Image Carousel for the Map */}
+          <div className="flex flex-col items-center justify-center pt-10 gap-8">
+            <span className="text-[#0f1923] text-center text-6xl font-tungsten">
+              Gallery
+            </span>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full max-w-4xl h-full"
+            >
+              <CarouselContent>
+                {mapDescription.images?.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1">
+                      <Image
+                        src={image}
+                        alt={`Map Image ${index + 1}`}
+                        width={1000}
+                        height={600}
+                        className="border min-h-[500px] border-valoranttext rounded-lg"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
         </>
       )}
     </>
