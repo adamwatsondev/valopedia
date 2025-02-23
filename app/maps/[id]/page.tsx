@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { mapDescriptions } from "@/data/descriptions";
 
 interface Callout {
   regionName: string;
@@ -28,125 +29,6 @@ interface Map {
   callouts: Callout[];
   listViewIcon: string;
 }
-
-interface MapDescription {
-  displayName: string;
-  description: string;
-  images?: string[];
-}
-
-const mapDescriptions: MapDescription[] = [
-  {
-    displayName: "Ascent",
-    description:
-      "An open playground for small wars of position and attrition divide two sites on Ascent. Each site can be fortified by irreversible bomb doors; once they’re down, you’ll have to destroy them or find another way. Yield as little territory as possible.",
-    images: [
-      "/images/ascent/one.webp",
-      "/images/ascent/two.jpg",
-      "/images/ascent/three.jpg",
-      "/images/ascent/four.jpg",
-      "/images/ascent/five.webp",
-    ],
-  },
-  {
-    displayName: "Bind",
-    description:
-      "Two sites. No middle. Gotta pick left or right. What’s it going to be then? Both offer direct paths for attackers and a pair of one-way teleporters make it easier to flank.",
-    images: [
-      "/images/bind/one.jpg",
-      "/images/bind/two.png",
-      "/images/bind/three.jpg",
-      "/images/bind/four.avif",
-      "/images/bind/five.webp",
-      "/images/bind/six.webp",
-    ],
-  },
-  {
-    displayName: "Haven",
-    description:
-      "Beneath a forgotten monastery, a clamour emerges from rival Agents clashing to control three sites. There’s more territory to control, but defenders can use the extra real estate for aggressive pushes.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Sunset",
-    description:
-      "A disaster at a local kingdom facility threatens to engulf the whole neighborhood. Stop at your favorite food truck then fight across the city in this traditional three lane map.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Icebox",
-    description:
-      "Your next battleground is a secret Kingdom excavation site overtaken by the arctic. The two plant sites protected by snow and metal require some horizontal finesse. Take advantage of the ziplines and they’ll never see you coming.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Lotus",
-    description:
-      "A mysterious structure housing an astral conduit radiates with ancient power. Great stone doors provide a variety of movement opportunities and unlock the paths to three mysterious sites.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Pearl",
-    description:
-      "Attackers push down into the Defenders on this two-site map set in a vibrant, underwater city. Pearl is a geo-driven map with no mechanics. Take the fight through a compact mid or the longer range wings in our first map set in Omega Earth.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Fracture",
-    description:
-      "A top secret research facility split apart by a failed radianite experiment. With defender options as divided as the map, the choice is yours: meet the attackers on their own turf or batten down the hatches to weather the assault.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Breeze",
-    description:
-      "Take in the sights of historic ruins or seaside caves on this tropical paradise. But bring some cover. You&apos;ll need them for the wide open spaces and long range engagements. Watch your flanks and this will be a Breeze.",
-    images: ["/images/breeze/one.webp", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Split",
-    description:
-      "If you want to go far, you’ll have to go up. A pair of sites split by an elevated center allows for rapid movement using two rope ascenders. Each site is built with a looming tower vital for control. Remember to watch above before it all blows sky-high.",
-    images: [
-      "/images/split/one.webp",
-      "/images/split/two.png",
-      "/images/split/three.webp",
-      "/images/split/four.jpg",
-      "/images/split/five.webp",
-      "/images/split/six.avif",
-    ],
-  },
-  {
-    displayName: "Drift",
-    description:
-      "Drift is one of the new Team Deathmatch maps in VALORANT. The origin of the map is Breeze.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "District",
-    description:
-      "District is one of the first three Team Deathmatch maps in VALORANT. The origin of the Map is Split.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Glitch",
-    description:
-      "Glitch is one of the new Team Deathmatch maps in VALORANT. The origins of the map is Haven and Sunset.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Kasbah",
-    description:
-      "Kasbah is one of the first three Team Deathmatch maps in VALORANT. The origin of the Map is Bind.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-  {
-    displayName: "Piazza",
-    description:
-      "Piazza is one of the first three Team Deathmatch maps in VALORANT. The origin of the Map is Ascent.",
-    images: ["/images/ascent/one.jpg", "/images/ascent/two.jpg"],
-  },
-];
 
 const MapPage = () => {
   const { id } = useParams();
@@ -272,7 +154,7 @@ const MapPage = () => {
                         alt={`Map Image ${index + 1}`}
                         width={1000}
                         height={600}
-                        className="border border-valoranttext rounded-lg"
+                        className="border min-h-[500px] border-valoranttext rounded-lg"
                       />
                     </div>
                   </CarouselItem>
